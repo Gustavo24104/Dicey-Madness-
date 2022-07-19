@@ -1,0 +1,389 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Games/GameTest.cs" type="Script" id=1]
+[ext_resource path="res://Games/Game3/Faca.png" type="Texture" id=2]
+[ext_resource path="res://Games/Game3/Knife.cs" type="Script" id=3]
+[ext_resource path="res://pixelated.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Games/Game3/RollingDice.png" type="Texture" id=5]
+[ext_resource path="res://Games/Game3/DiceLogic.cs" type="Script" id=6]
+[ext_resource path="res://Games/Game3/Buraconegrosla.png" type="Texture" id=7]
+[ext_resource path="res://Sons/Cut.mp3" type="AudioStream" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 85
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 370, 260 ), Vector2( 370, 260 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "TextAnim"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.95, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 370, 260 ), Vector2( 450, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.95, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 37.1667, 9.83332 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 126, 119 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 126, 0, 126, 119 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 252, 0, 126, 119 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 22.5, 23.5 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 32, 305 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 4.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameLabel" type="Label" parent="CanvasLayer"]
+show_behind_parent = true
+light_mask = 3
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -142.0
+margin_top = -40.0
+margin_right = 558.0
+margin_bottom = 115.0
+rect_scale = Vector2( 0.944444, 0.944444 )
+rect_clip_content = true
+custom_fonts/font = SubResource( 1 )
+text = "Defend!"
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GameLabel"]
+autoplay = "TextAnim"
+reset_on_save = false
+anims/RESET = SubResource( 3 )
+anims/TextAnim = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 200, 290 )
+rotation = -1.5708
+scale = Vector2( 1.7, 1.7 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="Sprite"]
+position = Vector2( 2.33334, -2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+position = Vector2( 1.5, 1.83331 )
+shape = SubResource( 4 )
+
+[node name="cut" type="AudioStreamPlayer" parent="Sprite"]
+stream = ExtResource( 8 )
+volume_db = -12.0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1149, 113 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D4" type="Area2D" parent="."]
+position = Vector2( 1404, 321 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D4"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D8" type="Area2D" parent="."]
+position = Vector2( 1227, 452 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D8"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D8"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D13" type="Area2D" parent="."]
+position = Vector2( 1060, 306 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D13"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D13"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D17" type="Area2D" parent="."]
+position = Vector2( 1574, 166 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D17"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 1
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D17"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D16" type="Area2D" parent="."]
+position = Vector2( 1332, 131 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D16"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 1
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D16"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D19" type="Area2D" parent="."]
+position = Vector2( 2019, 494 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D19"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 1
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D19"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D20" type="Area2D" parent="."]
+position = Vector2( 1832, 525 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D20"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 1
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D20"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D23" type="Area2D" parent="."]
+position = Vector2( 1500, 487 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D23"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 1
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D23"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D24" type="Area2D" parent="."]
+position = Vector2( 1930, 370 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D24"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 1
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D24"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D25" type="Area2D" parent="."]
+position = Vector2( 1678, 397 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D25"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D25"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="Area2D26" type="Area2D" parent="."]
+position = Vector2( 1812, 272 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 4.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Area2D26"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+frame = 2
+speed_scale = 1.3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D26"]
+position = Vector2( -2, -1 )
+shape = SubResource( 9 )
+
+[node name="buraconegro" type="Area2D" parent="."]
+position = Vector2( 32, 319 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="buraconegro"]
+position = Vector2( -16, -25 )
+shape = SubResource( 10 )
+
+[node name="Sprite" type="Sprite" parent="buraconegro"]
+position = Vector2( 25, -28 )
+scale = Vector2( 4, 5 )
+texture = ExtResource( 7 )
+
+[connection signal="timeout" from="EndTimer" to="." method="endTimerBom"]
+[connection signal="area_entered" from="Sprite/Area2D" to="Sprite" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="buraconegro" to="." method="_on_buraconegro_area_entered"]

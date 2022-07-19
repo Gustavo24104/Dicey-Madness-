@@ -1,0 +1,527 @@
+[gd_scene load_steps=49 format=2]
+
+[ext_resource path="res://Games/GameTest.cs" type="Script" id=1]
+[ext_resource path="res://pixelated.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Games/Game2/Game2.cs" type="Script" id=3]
+[ext_resource path="res://Games/Game2/Blower.cs" type="Script" id=4]
+[ext_resource path="res://Games/BlowerSheet.png" type="Texture" id=5]
+[ext_resource path="res://Games/Game2/CoisaQueODadoVaiCairDentro.png" type="Texture" id=6]
+[ext_resource path="res://Games/Game2/DiceScript.cs" type="Script" id=7]
+[ext_resource path="res://Games/Game1/Dice/6.png" type="Texture" id=8]
+[ext_resource path="res://Games/Game2/Dirt.png" type="Texture" id=9]
+[ext_resource path="res://Sons/blower.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Sons/CoisaEntrando.mp3" type="AudioStream" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 85
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, 240 ), Vector2( 230, 240 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "TextAnim"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.95, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 221, 269 ), Vector2( 300, 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.95, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 170, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 340, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 510, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 680, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 850, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 1020, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 1190, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 1360, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 1530, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 1700, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
+region = Rect2( 1870, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 5 )
+region = Rect2( 2040, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 5 )
+region = Rect2( 2210, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 5 )
+region = Rect2( 2380, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 5 )
+region = Rect2( 2550, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 5 )
+region = Rect2( 2720, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 5 )
+region = Rect2( 2890, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 5 )
+region = Rect2( 3060, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 5 )
+region = Rect2( 3230, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 5 )
+region = Rect2( 3400, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 5 )
+region = Rect2( 3570, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 5 )
+region = Rect2( 3740, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 5 )
+region = Rect2( 3910, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 5 )
+region = Rect2( 4080, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 5 )
+region = Rect2( 4250, 0, 170, 118 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 5 )
+region = Rect2( 4420, 0, 170, 118 )
+
+[sub_resource type="SpriteFrames" id=31]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 52.5, 14 )
+
+[sub_resource type="PhysicsMaterial" id=35]
+friction = 0.4
+bounce = 0.4
+
+[sub_resource type="RectangleShape2D" id=32]
+extents = Vector2( 19, 19 )
+
+[sub_resource type="PhysicsMaterial" id=36]
+friction = 0.5
+
+[sub_resource type="RectangleShape2D" id=34]
+extents = Vector2( 64, 54 )
+
+[sub_resource type="RectangleShape2D" id=37]
+extents = Vector2( 243.327, 43.8596 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="GameLogic" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="caido" type="AudioStreamPlayer" parent="GameLogic"]
+stream = ExtResource( 11 )
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 4.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameLabel" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -282.0
+margin_top = -60.0
+margin_right = 418.001
+margin_bottom = 94.999
+rect_scale = Vector2( 0.944444, 0.944444 )
+custom_fonts/font = SubResource( 1 )
+text = "Blow them off!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/GameLabel"]
+autoplay = "TextAnim"
+reset_on_save = false
+anims/RESET = SubResource( 3 )
+anims/TextAnim = SubResource( 2 )
+
+[node name="Blower" type="AnimatedSprite" parent="CanvasLayer"]
+position = Vector2( 880, 200 )
+frames = SubResource( 31 )
+frame = 15
+speed_scale = 2.0
+playing = true
+script = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer/Blower"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Blower/Area2D"]
+position = Vector2( 71.5, -7 )
+shape = SubResource( 33 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Blower"]
+stream = ExtResource( 10 )
+volume_db = -15.0
+autoplay = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 292, 176 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, 50 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2( 402, 144 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D2"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2( 381, 60 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D3"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+position = Vector2( 439, 90 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D4"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="."]
+position = Vector2( 444, 147 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D5"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D5"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D6" type="RigidBody2D" parent="."]
+position = Vector2( 470, 182 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D6"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D6"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D7" type="RigidBody2D" parent="."]
+position = Vector2( 425, 183 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D7"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D7"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D8" type="RigidBody2D" parent="."]
+position = Vector2( 323, 61 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D8"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D8"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D9" type="RigidBody2D" parent="."]
+position = Vector2( 292, 103 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D9"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D9"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D10" type="RigidBody2D" parent="."]
+position = Vector2( 292, 139 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D10"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D10"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D11" type="RigidBody2D" parent="."]
+position = Vector2( 353, 109 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D11"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D11"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D12" type="RigidBody2D" parent="."]
+position = Vector2( 353, 182 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D12"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D12"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="RigidBody2D13" type="RigidBody2D" parent="."]
+position = Vector2( 353, 144 )
+mass = 11.7347
+physics_material_override = SubResource( 35 )
+gravity_scale = 5.0
+can_sleep = false
+script = ExtResource( 7 )
+appliedForce = Vector2( 5900, -20 )
+appliedTorque = 400.0
+
+[node name="Icon" type="Sprite" parent="RigidBody2D13"]
+position = Vector2( -6, -1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D13"]
+position = Vector2( -6, -1 )
+shape = SubResource( 32 )
+
+[node name="Ground" type="Sprite" parent="."]
+position = Vector2( 255, 269 )
+scale = Vector2( 4, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
+physics_material_override = SubResource( 36 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
+position = Vector2( 1.52588e-05, 10 )
+shape = SubResource( 34 )
+
+[node name="lastPlace" type="Sprite" parent="."]
+position = Vector2( 836, 342 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="lastPlace"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lastPlace/Area2D"]
+position = Vector2( 184.006, 20.6096 )
+shape = SubResource( 37 )
+
+[connection signal="complete" from="GameLogic" to="." method="onSucces"]
+[connection signal="timeout" from="EndTimer" to="." method="_on_EndTimer_timeout"]
+[connection signal="body_entered" from="CanvasLayer/Blower/Area2D" to="CanvasLayer/Blower" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="lastPlace/Area2D" to="GameLogic" method="_on_Area2D_body_entered"]

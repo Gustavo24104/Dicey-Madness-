@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/blower.mp3-02305480ae1309f64b1b706a4a5442f8.mp3str"
+
+[deps]
+
+source_file="res://Sons/blower.mp3"
+dest_files=[ "res://.import/blower.mp3-02305480ae1309f64b1b706a4a5442f8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

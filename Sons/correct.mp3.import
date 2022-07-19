@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/correct.mp3-ac8a076af488187978a63736b6107378.mp3str"
+
+[deps]
+
+source_file="res://Sons/correct.mp3"
+dest_files=[ "res://.import/correct.mp3-ac8a076af488187978a63736b6107378.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

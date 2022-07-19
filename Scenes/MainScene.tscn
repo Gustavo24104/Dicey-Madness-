@@ -1,0 +1,175 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://main.cs" type="Script" id=1]
+[ext_resource path="res://Games/Game1/Game1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://pixelated.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Games/Game2/Game2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Check-Sheet.png" type="Texture" id=5]
+[ext_resource path="res://HideObjects.cs" type="Script" id=6]
+[ext_resource path="res://Sprites/Coracao.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/CheckMark.cs" type="Script" id=8]
+[ext_resource path="res://Games/Game3/Game3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Games/Game4/Game4.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Games/Game5/Game5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sons/aiai.mp3" type="AudioStream" id=12]
+[ext_resource path="res://Sons/correct.mp3" type="AudioStream" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=17]
+resource_name = "shake"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -534, 0 ), Vector2( -534, 10 ), Vector2( -534, -10 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 30, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 60, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 90, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 120, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 150, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 180, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 210, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 5 )
+region = Rect2( 240, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 5 )
+region = Rect2( 270, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 300, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 330, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 360, 0, 30, 40 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 5 )
+region = Rect2( 390, 0, 30, 40 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"loop": false,
+"name": "default",
+"speed": 24.0
+} ]
+
+[node name="MainGame" type="Node2D"]
+script = ExtResource( 1 )
+microGames = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+lives = 4
+
+[node name="MicroGameTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 512.0
+margin_right = 549.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+valign = 1
+
+[node name="hearts" type="Node2D" parent="."]
+position = Vector2( -534, -10 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Coracao" type="Sprite" parent="hearts"]
+position = Vector2( 966, 55 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="Coracao2" type="Sprite" parent="hearts"]
+position = Vector2( 844, 55 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="Coracao3" type="Sprite" parent="hearts"]
+position = Vector2( 724, 57 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="Coracao4" type="Sprite" parent="hearts"]
+position = Vector2( 605, 57 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hearts"]
+playback_speed = 15.0
+anims/shake = SubResource( 17 )
+
+[node name="audio" type="AudioStreamPlayer" parent="hearts"]
+stream = ExtResource( 12 )
+volume_db = -15.0
+pitch_scale = 2.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 481, 320 )
+scale = Vector2( 10, 10 )
+frames = SubResource( 16 )
+frame = 13
+playing = true
+script = ExtResource( 8 )
+
+[node name="Correct" type="AudioStreamPlayer" parent="AnimatedSprite"]
+stream = ExtResource( 13 )
+volume_db = -10.0
+pitch_scale = 2.0
+
+[connection signal="hider" from="." to="hearts" method="_on_MainGame_hider"]
+[connection signal="hider" from="." to="AnimatedSprite" method="_on_MainGame_hider"]
+[connection signal="loseLife" from="." to="hearts" method="_on_MainGame_loseLife"]
+[connection signal="passed" from="." to="AnimatedSprite" method="_on_MainGame_passed"]
+[connection signal="show" from="." to="hearts" method="_on_MainGame_show"]
+[connection signal="timeout" from="MicroGameTimer" to="." method="MicroGamerTimeout"]

@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://pixelated.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/MainMenuButons.cs" type="Script" id=2]
+[ext_resource path="res://Scenes/MainScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/HowTo.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+mainScene = ExtResource( 3 )
+tutorialScene = ExtResource( 4 )
+
+[node name="PlayBtn" type="Button" parent="."]
+margin_left = 387.0
+margin_top = 256.0
+margin_right = 587.0
+margin_bottom = 346.0
+rect_pivot_offset = Vector2( 100, 45 )
+custom_fonts/font = SubResource( 1 )
+text = "Play!"
+expand_icon = true
+
+[node name="QuitBtn" type="Button" parent="."]
+margin_left = 387.0
+margin_top = 450.0
+margin_right = 587.0
+margin_bottom = 540.0
+rect_pivot_offset = Vector2( 100, 45 )
+custom_fonts/font = SubResource( 1 )
+text = "Quit"
+expand_icon = true
+
+[node name="QuitBtn2" type="Button" parent="."]
+margin_left = 618.0
+margin_top = 256.0
+margin_right = 676.0
+margin_bottom = 346.0
+rect_pivot_offset = Vector2( 100, 45 )
+custom_fonts/font = SubResource( 1 )
+text = " ?"
+expand_icon = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 237.0
+margin_top = 80.0
+margin_right = 727.0
+margin_bottom = 170.0
+custom_fonts/font = SubResource( 2 )
+text = "Dicey Madness!"
+
+[connection signal="pressed" from="PlayBtn" to="." method="PressPlay"]
+[connection signal="pressed" from="QuitBtn" to="." method="_on_QuitBtn_pressed"]
+[connection signal="pressed" from="QuitBtn2" to="." method="btnHowTo"]

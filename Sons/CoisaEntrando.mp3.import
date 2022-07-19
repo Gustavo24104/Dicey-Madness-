@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CoisaEntrando.mp3-f114a5e97de431b0d12724b56fea6a06.mp3str"
+
+[deps]
+
+source_file="res://Sons/CoisaEntrando.mp3"
+dest_files=[ "res://.import/CoisaEntrando.mp3-f114a5e97de431b0d12724b56fea6a06.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
